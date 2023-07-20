@@ -10,7 +10,7 @@ const SignUp = () => {
   const loginHandler = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3600/subscriberlogin",
+        "https://eveez.in:3611/subscriberlogin",
         {
           key: "fYvsw#24246vdndkndf950350",
           data: {
