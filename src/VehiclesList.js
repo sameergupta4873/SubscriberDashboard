@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { useNavigate } from "react-router";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
 const VehiclesList = () => {
   const getToken = () => {
@@ -60,7 +61,7 @@ const VehiclesList = () => {
         </h1>
         <hr />
         <div class="relative overflow-x-auto my-10">
-          <table class="text-sm text-left text-gray-500 border mx-10">
+          <table id="convert" class="text-sm text-left text-gray-500 border mx-10">
             <thead class="text-xs border border-t-1 border-[#000] text-gray-700 uppercase bg-gray-50">
               <tr>
                 <th scope="col" class="px-20 py-3">
@@ -154,8 +155,16 @@ const VehiclesList = () => {
             </tbody>
           </table>
         </div>
+        <ReactHTMLTableToExcel
+        id="export-to-excel-button"
+        className="export-button rounded w-[9rem] mx-auto absolute left-[49%] border py-1 px-3"
+        table="convert"
+        filename="data"
+        sheet="sheet 1"
+        buttonText="Export to Excel"
+      />
         <div className="ml-10 w-[90vw]">
-          <div className="w-[11rem] mx-auto flex">
+          <div className="w-[12rem] mx-auto flex mt-[6rem]">
             <button
               className="rounded-full pt-[7px] border h-10 w-10 flex justify-center"
               onClick={() => handlePageChange(currentPage - 1)}
