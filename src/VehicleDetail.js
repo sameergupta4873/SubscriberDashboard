@@ -101,8 +101,8 @@ const VehiclesDetail = () => {
                         >
                           {item.Day}
                         </th>
+                        <td class="px-6 py-4">{subscriberData[VehicleID].VehicleID}</td>
                         <td class="px-6 py-4">{item["Total Trips"]}</td>
-                        <td class="px-6 py-4">{item["Total Duration"]}</td>
                         <td class="px-6 py-4">{item["Total Distance"]}</td>
                       </tr>
                     );
